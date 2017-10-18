@@ -32,14 +32,14 @@ require("./routes/html-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-// db = mongoose.createConnection('mongodb://localhost/yumyumnasty');
-// db.on("error", function(error){
-//   console.log("Mongoose Error: ", error);
-// });
+db = mongoose.createConnection('mongodb://localhost/yumyumnasty');
+db.on("error", function(error){
+  console.log("Mongoose Error: ", error);
+});
 
-// db.once("open", function() {
-//   console.log("Mongoose connection successful");
-// });
+db.once("open", function() {
+  console.log("Mongoose connection successful");
+});
 
 app.listen(process.env.PORT || 3000, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
