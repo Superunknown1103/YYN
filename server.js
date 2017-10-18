@@ -34,7 +34,7 @@ require("./routes/html-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db = mongoose.createConnection('mongodb://localhost/yumyumnasty');
+db = mongoose.createConnection('mongodb://heroku_wf71g691:hutlbasglpvqvida0inrff4ngu@ds121955.mlab.com:21955/heroku_wf71g691');
 db.on("error", function(error){
   console.log("Mongoose Error: ", error);
 });

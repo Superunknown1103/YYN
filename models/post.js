@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/yumyumnasty')
+mongoose.connect('mongodb://heroku_wf71g691:hutlbasglpvqvida0inrff4ngu@ds121955.mlab.com:21955/heroku_wf71g691')
 var Schema = mongoose.Schema;
 
 var ProductSchema = new Schema({
