@@ -36,7 +36,7 @@ function displayPictureW(){
 $('#centerImage').remove();
 $('#pictureView').empty();
   // var gender = $(this).attr('data-name');
-  var queryURL = "http://api.shopstyle.com/api/v2/products?pid=uid3929-39772923-63&fts=women&offset=0&limit=20";
+  var queryURL = "https://api.shopstyle.com/api/v2/products?pid=uid3929-39772923-63&fts=women&offset=0&limit=20";
 
   $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
 
@@ -142,7 +142,7 @@ $('#pictureView').empty();
         $('#centerImage').remove();
         $('#pictureView').empty();
           // var gender = $(this).attr('data-name');
-          var queryURL = "http://api.shopstyle.com/api/v2/products?pid=uid3929-39772923-63&fts=men&offset=0&limit=20";
+          var queryURL = "https://api.shopstyle.com/api/v2/products?pid=uid3929-39772923-63&fts=men&offset=0&limit=20";
         
           $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
         
@@ -251,7 +251,7 @@ $('#pictureView').empty();
                 $('#centerImage').remove();
                 $('#pictureView').empty();
                   // var gender = $(this).attr('data-name');
-                  var queryURL = "http://api.shopstyle.com/api/v2/products?pid=uid3929-39772923-63&fts=&offset=0&limit=20";
+                  var queryURL = "https://api.shopstyle.com/api/v2/products?pid=uid3929-39772923-63&fts=&offset=0&limit=20";
                 
                   $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
                 
