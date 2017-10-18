@@ -7,11 +7,13 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
+console.log('server started');
 var path = require("path");
 mongoose.Promise = Promise;
 // Sets up the Express App
 // =============================================================
 var app = express();
+var port = process.env.PORT || 8000
 
 // Requiring our models for syncing
 const Product = require("./models/post.js")
@@ -41,6 +43,6 @@ db.once("open", function() {
   console.log("Mongoose connection successful");
 });
 
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+app.listen(port, function() {
+  console.log("App is running on port " + port);
 });
