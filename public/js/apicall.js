@@ -109,7 +109,7 @@ $('#pictureView').empty();
               color: $(this).data('color'),
               brand: $(this).data('brand'),
            }
-           $('#pictureDiv').remove();
+           $('#pictureView').remove();
            getItem(item);
         console.log($(this).data('id'));
             $.post('/api/products', item)
@@ -129,7 +129,7 @@ $('#pictureView').empty();
               color: $(this).data('color'),
               brand: $(this).data('brand'),
             }
-            $('#pictureDiv').remove();
+            $('#pictureView').remove();
         getItem(item);
         console.log(item);
             $.post('/api/products', item)
@@ -219,7 +219,7 @@ $('#pictureView').empty();
                       brand: $(this).data('brand'),
       
                    }
-                   $('#pictureDiv').remove();
+                   $('#pictureView').remove();
                    getItem(item);
                 console.log($(this).data('id'));
                     $.post('/api/products', item)
@@ -241,7 +241,7 @@ $('#pictureView').empty();
       
                     }
                     // remove image when done
-                    $('#pictureDiv').remove();
+                    $('#pictureView').remove();
                 getItem(item);
                 console.log(item);
                     $.post('/api/products', item)
@@ -331,7 +331,7 @@ $('#pictureView').empty();
                               brand: $(this).data('brand'),
               
                            }
-                           $('#pictureDiv').remove();
+                           $('#pictureView').remove();
                            getItem(item);
                         console.log($(this).data('id'));
                             $.post('/api/products', item)
@@ -352,7 +352,7 @@ $('#pictureView').empty();
                               brand: $(this).data('brand'),
               
                             }
-                            $('#pictureDiv').remove();
+                            $('#pictureView').remove();
                         getItem(item);
                         console.log(item);
                             $.post('/api/products', item)
@@ -367,8 +367,6 @@ $('#pictureView').empty();
   function clearPicture(){
     $('#pictureView').empty();
   }
-   // History Modal //
-
    // History Modal //
 
    function history() {
