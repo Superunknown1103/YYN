@@ -361,6 +361,8 @@ $('#pictureView').empty();
   }
    // History Modal //
 
+   // History Modal //
+
    function history() {
     
             console.log("WORKING");
@@ -368,9 +370,6 @@ $('#pictureView').empty();
               $('#id02').show();
     
               $('#product').empty();
-              // $('#colorTags').empty();
-              // $('#materialTags').empty();
-              // $('#styleTags').empty();
               let shoppingCartHidden = [];
               let shoppingCartTrim = [];
     
@@ -421,23 +420,29 @@ $('#pictureView').empty();
               let colorTagsObject = {};
               let materialTagsObject = {};
               let styleTagsObject = {};
+              let brandTagsObject = {};
               let colorTagsArraySorted = [];
               let materialTagsArraySorted = [];
               let styleTagsArraySorted = [];
+              let brandTagsArraySorted = [];
               let colorTagsToPage = [];
               let materialTagsToPage = [];
               let styleTagsToPage = [];
+              let brandTagsToPage = [];
               let colorTagsList = $('#colorTags');
               let materialTagsList = $('#materialTags');
               let styleTagsList = $('#styleTags');
+              let brandTagsList = $('#brandTags');
     
               for (let i = 0; i < data.length; i++) {
                 let colorTags = data[i].color;
                 let materialTags = data[i].material;
                 let styleTags = data[i].style;
+                let brandTags = data[i].brand;
                 let colorTagsArray;
                 let materialTagsArray;
                 let styleTagsArray;
+                let brandTagsArray;
                 let feeling;
                 let faceIt;
     
@@ -452,6 +457,10 @@ $('#pictureView').empty();
                 if (styleTags !== undefined) {
                   styleTagsArray = styleTags.split(',');
                   console.log(styleTagsArray);
+                }
+                if (brandTags !== undefined) {
+                  brandTagsArray = brandTags.split(',');
+                  console.log(brandTagsArray);
                 }
     
                 // ￥Pushing into empty objects and associating values to them￥
@@ -491,44 +500,75 @@ $('#pictureView').empty();
                       console.log(styleTagsObject);
                     };          
                   }
+
+                  if (brandTagsArray !== undefined) {
+                    for (let i = 0; i < brandTagsArray.length; i++) {
+                      if (!brandTagsObject[brandTagsArray[i]]) {
+                        brandTagsObject[brandTagsArray[i]] = 1;
+                      }
+                      else {
+                        brandTagsObject[brandTagsArray[i]] += 1;
+                      }
+                      console.log(brandTagsObject);
+                    };          
+                  }
                 }
     
                 else {
-                  for (let i = 0; i < colorTagsArray.length; i++) {
-                    if (!colorTagsObject[colorTagsArray[i]]) {
-                      colorTagsObject[colorTagsArray[i]] = -1;
-                    }
-                    else {
-                      colorTagsObject[colorTagsArray[i]] -= 1;
-                    }
-                    console.log(colorTagsObject);
-                  };
+                  if (colorTagsArray !== undefined) {
+                    for (let i = 0; i < colorTagsArray.length; i++) {
+                      if (!colorTagsObject[colorTagsArray[i]]) {
+                        colorTagsObject[colorTagsArray[i]] = -1;
+                      }
+                      else {
+                        colorTagsObject[colorTagsArray[i]] -= 1;
+                      }
+                      console.log(colorTagsObject);
+                    };
+                  }
+
+                  if (materialTagsArray !== undefined) {
+                    for (let i = 0; i < materialTagsArray.length; i++) {
+                      if (!materialTagsObject[materialTagsArray[i]]) {
+                        materialTagsObject[materialTagsArray[i]] = -1;
+                      }
+                      else {
+                        materialTagsObject[materialTagsArray[i]] -= 1;
+                      }
+                      console.log(materialTagsObject);
+                    };
+                  }
     
-                  for (let i = 0; i < materialTagsArray.length; i++) {
-                    if (!materialTagsObject[materialTagsArray[i]]) {
-                      materialTagsObject[materialTagsArray[i]] = -1;
-                    }
-                    else {
-                      materialTagsObject[materialTagsArray[i]] -= 1;
-                    }
-                    console.log(materialTagsObject);
-                  };
-    
-                  for (let i = 0; i < styleTagsArray.length; i++) {
-                    if (!styleTagsObject[styleTagsArray[i]]) {
-                      styleTagsObject[styleTagsArray[i]] = -1;
-                    }
-                    else {
-                      styleTagsObject[styleTagsArray[i]] -= 1;
-                    }
-                    console.log(styleTagsObject);
-                  };
+                  if (styleTagsArray !== undefined) {
+                    for (let i = 0; i < styleTagsArray.length; i++) {
+                      if (!styleTagsObject[styleTagsArray[i]]) {
+                        styleTagsObject[styleTagsArray[i]] = -1;
+                      }
+                      else {
+                        styleTagsObject[styleTagsArray[i]] -= 1;
+                      }
+                      console.log(styleTagsObject);
+                    };
+                  }
+
+                  if (brandTagsArray !== undefined) {
+                    for (let i = 0; i < brandTagsArray.length; i++) {
+                      if (!brandTagsObject[brandTagsArray[i]]) {
+                        brandTagsObject[brandTagsArray[i]] = -1;
+                      }
+                      else {
+                        brandTagsObject[brandTagsArray[i]] -= 1;
+                      }
+                      console.log(brandTagsObject);
+                    };
+                  }
                 }; // ・Objects populated・
     
                 // Sorts and returns nested array in descending numerical order
                 sortByProp(colorTagsObject, colorTagsArraySorted);
                 sortByProp(materialTagsObject, materialTagsArraySorted);
                 sortByProp(styleTagsObject, styleTagsArraySorted);
+                sortByProp(brandTagsObject, brandTagsArraySorted);
     
                 if (colorTagsArray !== undefined) {
                   for (let i = 0; i < colorTagsArray.length; i++) {
@@ -548,6 +588,12 @@ $('#pictureView').empty();
                     console.log(styleTagsToPage);
                   };
                 }
+                if (brandTagsArray !== undefined) {
+                  for (let i = 0; i < brandTagsArray.length; i++) {
+                    brandTagsToPage.push(brandTagsArray[i]);
+                    console.log(brandTagsToPage);
+                  };
+                }
                 
                 console.log('This is happening');
               };
@@ -555,28 +601,29 @@ $('#pictureView').empty();
               let uniqueColorTags = [];
               let uniqueMaterialTags = [];
               let uniqueStyleTags = [];
+              let uniqueBrandTags = [];
               
               for (var i = 0; i < colorTagsToPage.length; i++) {
-              
-                
                 $.each(colorTagsToPage, function(i, el) {
                     if($.inArray(el, uniqueColorTags) === -1) uniqueColorTags.push(el);
                 });
               }
     
               for (var i = 0; i < materialTagsToPage.length; i++) {
-              
-                
                 $.each(materialTagsToPage, function(i, el) {
                     if($.inArray(el, uniqueMaterialTags) === -1) uniqueMaterialTags.push(el);
                 });
               }
     
               for (var i = 0; i < styleTagsToPage.length; i++) {
-              
-                
                 $.each(styleTagsToPage, function(i, el) {
                     if($.inArray(el, uniqueStyleTags) === -1) uniqueStyleTags.push(el);
+                });
+              }
+
+              for (var i = 0; i < brandTagsToPage.length; i++) {
+                $.each(brandTagsToPage, function(i, el) {
+                    if($.inArray(el, uniqueBrandTags) === -1) uniqueBrandTags.push(el);
                 });
               }
               
@@ -599,6 +646,14 @@ $('#pictureView').empty();
                     styleTagsList.append("<div class='taglist mH' 'historyBox' id='menu'+ i>" + 
                     styleTagsToPage[s] + 
                     " is a style that you might like" +
+                    "<div></br>");
+                    
+                  }
+
+                  for (var b = 0; b < uniqueBrandTags.length; b++) {
+                    brandTagsList.append("<div class='taglist mH' 'historyBox' id='menu'+ i>" + 
+                    brandTagsToPage[b] + 
+                    " is a brand that you might like" +
                     "<div></br>");
                     
                   }
@@ -716,6 +771,3 @@ $('#pictureView').empty();
       emptyArray = sortMe.reverse();
       console.log(emptyArray);
     }
-    
-    ///////////////////////////////////////////////////// TAGS TABLE BELOW /////////////////////////////////////////////////////////////////////////
-    
