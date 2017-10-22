@@ -109,7 +109,7 @@ $('#pictureView').empty();
               color: $(this).data('color'),
               brand: $(this).data('brand'),
            }
-           $('#pictureView').remove();
+           $('#pictureDiv').remove();
            getItem(item);
         console.log($(this).data('id'));
             $.post('/api/products', item)
@@ -129,7 +129,7 @@ $('#pictureView').empty();
               color: $(this).data('color'),
               brand: $(this).data('brand'),
             }
-            $('#pictureView').remove();
+            $('#pictureDiv').remove();
         getItem(item);
         console.log(item);
             $.post('/api/products', item)
@@ -219,7 +219,7 @@ $('#pictureView').empty();
                       brand: $(this).data('brand'),
       
                    }
-                   $('#pictureView').remove();
+                   $('#pictureDiv').remove();
                    getItem(item);
                 console.log($(this).data('id'));
                     $.post('/api/products', item)
@@ -241,7 +241,7 @@ $('#pictureView').empty();
       
                     }
                     // remove image when done
-                    $('#pictureView').remove();
+                    $('#pictureDiv').remove();
                 getItem(item);
                 console.log(item);
                     $.post('/api/products', item)
@@ -255,7 +255,7 @@ $('#pictureView').empty();
         
               function displayPictureMW(){
                 $('#centerImage').remove();
-                $('#pictureView').empty();
+                $('#pictureDiv').empty();
                   // var gender = $(this).attr('data-name');
                   var queryURL = "https://api.shopstyle.com/api/v2/products?pid=uid3929-39772923-63&fts=&offset=0&limit=20";
                 
@@ -331,7 +331,7 @@ $('#pictureView').empty();
                               brand: $(this).data('brand'),
               
                            }
-                           $('#pictureView').remove();
+                           $('#pictureDiv').remove();
                            getItem(item);
                         console.log($(this).data('id'));
                             $.post('/api/products', item)
@@ -352,7 +352,7 @@ $('#pictureView').empty();
                               brand: $(this).data('brand'),
               
                             }
-                            $('#pictureView').remove();
+                            $('#pictureDiv').remove();
                         getItem(item);
                         console.log(item);
                             $.post('/api/products', item)
