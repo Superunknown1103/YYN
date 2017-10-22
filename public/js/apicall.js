@@ -44,7 +44,7 @@ $('#pictureView').empty();
     var results = response.products;
 
     for (var i = 0; i < results.length; i++) {
-      var pictureDiv = $('<div class="pictureDiv">');
+      var pictureDiv = $('<div id="pictureDiv" class="pictureDiv">');
       var p = $("<div class='overlay'></div>");
       var nastybutton = $("<div  class='nastybutton buttonWrapper2'><div class=' button' id='nastybutton'><a href='#' onclick='return false;'> nasty </a></div></div>");
       var yumbutton = $("<div  class='yumbutton buttonWrapper'><div class=' button' id='yumbutton'><a href='#' onclick='return false;'> yum </a>");
@@ -109,6 +109,7 @@ $('#pictureView').empty();
               color: $(this).data('color'),
               brand: $(this).data('brand'),
            }
+           $('#pictureDiv').remove();
            getItem(item);
         console.log($(this).data('id'));
             $.post('/api/products', item)
@@ -128,6 +129,7 @@ $('#pictureView').empty();
               color: $(this).data('color'),
               brand: $(this).data('brand'),
             }
+            $('#pictureDiv').remove();
         getItem(item);
         console.log(item);
             $.post('/api/products', item)
@@ -142,7 +144,7 @@ $('#pictureView').empty();
         $('#centerImage').remove();
         $('#pictureView').empty();
           // var gender = $(this).attr('data-name');
-          var queryURL = "https://api.shopstyle.com/api/v2/products?pid=uid3929-39772923-63&fts=men&offset=0&limit=20";
+          var queryURL = "https://api.shopstyle.com/api/v2/products?pid=uid3929-39772923-63&fts=men&offset=&limit=20";
         
           $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
         
@@ -150,7 +152,7 @@ $('#pictureView').empty();
             var results = response.products;
         
             for (var i = 0; i < results.length; i++) {
-              var pictureDiv = $('<div class="pictureDiv">');
+              var pictureDiv = $('<div id="pictureDiv" class="pictureDiv">');
               var p = $("<div class='overlay'></div>");
               var nastybutton = $("<div  class='nastybutton buttonWrapper2'><div class=' button' id='nastybutton'><a href='#' onclick='return false;'> nasty </a></div></div>");
               var yumbutton = $("<div  class='yumbutton buttonWrapper'><div class=' button' id='yumbutton'><a href='#' onclick='return false;'> yum </a>");
@@ -178,6 +180,7 @@ $('#pictureView').empty();
                   yumbutton.attr('data-id', response.products[i].id);
                   yumbutton.attr('data-url', response.products[i].clickUrl);
                   yumbutton.attr('data-name', response.products[i].name);
+                  yumbutton.attr('data-image', response.products[i].image.sizes.Original.url);
                   try {
                   yumbutton.attr('data-material', material);
                   yumbutton.attr('data-style', style);
@@ -216,6 +219,7 @@ $('#pictureView').empty();
                       brand: $(this).data('brand'),
       
                    }
+                   $('#pictureDiv').remove();
                    getItem(item);
                 console.log($(this).data('id'));
                     $.post('/api/products', item)
@@ -236,6 +240,8 @@ $('#pictureView').empty();
                       brand: $(this).data('brand'),
       
                     }
+                    // remove image when done
+                    $('#pictureDiv').remove();
                 getItem(item);
                 console.log(item);
                     $.post('/api/products', item)
@@ -259,7 +265,7 @@ $('#pictureView').empty();
                     var results = response.products;
                 
                     for (var i = 0; i < results.length; i++) {
-                      var pictureDiv = $('<div class="pictureDiv">');
+                      var pictureDiv = $('<div id="pictureDiv" class="pictureDiv">');
                       var p = $("<div class='overlay'></div>");
                       var nastybutton = $("<div  class='nastybutton buttonWrapper2'><div class=' button' id='nastybutton'><a href='#' onclick='return false;'> nasty </a></div></div>");
                       var yumbutton = $("<div  class='yumbutton buttonWrapper'><div class=' button' id='yumbutton'><a href='#' onclick='return false;'> yum </a>");
@@ -325,6 +331,7 @@ $('#pictureView').empty();
                               brand: $(this).data('brand'),
               
                            }
+                           $('#pictureDiv').remove();
                            getItem(item);
                         console.log($(this).data('id'));
                             $.post('/api/products', item)
@@ -345,6 +352,7 @@ $('#pictureView').empty();
                               brand: $(this).data('brand'),
               
                             }
+                            $('#pictureDiv').remove();
                         getItem(item);
                         console.log(item);
                             $.post('/api/products', item)
