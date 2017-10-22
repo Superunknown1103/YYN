@@ -13,6 +13,29 @@ body{
   position: relative;
 }
 
+#colorTags {
+  text-align: center;
+}
+
+#materialTags {
+  text-align: center;
+}
+
+#styleTags {
+  text-align: center;
+}
+
+#brandTags {
+  text-align: center;
+}
+
+#psa {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 5%;
+  margin-top: 5%;
+}
+
 
 .logIn{
   border: 2px solid fuchsia;
