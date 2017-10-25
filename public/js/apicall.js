@@ -1,7 +1,7 @@
 
-$('#storedName').html('Mark');
+$('#storedName').html('Test User');
 
-$('#storedName2').html('Mark');
+$('#storedName2').html('Test User');
 
  $("#loginSubmit").on("click", function send() {
 
